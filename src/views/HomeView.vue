@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+    <LoginComponent />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import LoginComponent from '@/components/LoginComponent.vue'
+import { mapState } from 'pinia'
+import { useMainStore } from '@/store/main'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    LoginComponent,
+
+  }, 
+  computed: {
+    ...mapState(useMainStore, ["getLogin"])
   }
 }
 </script>
